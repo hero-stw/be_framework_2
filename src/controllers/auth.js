@@ -17,7 +17,7 @@ export const signup = async (req, res) => {
       },
     });
   } catch (error) {
-    res.status(400).json({ message: "Can not create user" });
+    res.status(400).json({ message: "Can not create new user" });
   }
 };
 
