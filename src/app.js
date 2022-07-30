@@ -4,6 +4,7 @@ import morgan from "morgan";
 import mongoose from "mongoose";
 import UserRoute from "./routes/users";
 import RecordRoute from "./routes/records";
+import SettingsRoute from "./routes/settings";
 
 const app = express();
 app.use(cors());
@@ -12,6 +13,7 @@ app.use(express.json());
 
 app.use("/api", UserRoute);
 app.use("/api", RecordRoute);
+app.use("/api", SettingsRoute);
 
 mongoose
   .connect("mongodb://localhost:27017/mathtool")
