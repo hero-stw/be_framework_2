@@ -46,7 +46,7 @@ export const updateRecord = async (req, res) => {
       update,
       option
     ).exec();
-    res.status(200).json(book);
+    res.status(200).json(record);
   } catch (error) {
     res.status(400).json({
       message: "Can not update record",
