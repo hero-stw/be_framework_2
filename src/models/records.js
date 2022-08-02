@@ -9,11 +9,15 @@ const RecordSchema = new Schema(
       type: String,
       required: true,
     },
-    timelapse: {
+    duration: {
       type: String,
       required: true,
     },
     error: {
+      type: Number,
+      required: true,
+    },
+    questionType: {
       type: Number,
       required: true,
     },

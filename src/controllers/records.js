@@ -53,3 +53,17 @@ export const updateRecord = async (req, res) => {
     });
   }
 };
+
+export const getRecordsByTypeWithSort = async (req, res) => {
+  try {
+    const query = req.query.type;
+    const records = await Record.find({ questionType: query })
+      .sort({ error: -1, duration: -1 })
+      .limit(10)
+      .exec();
+
+    res.status(400).json(records);
+  } catch (error) {
+    res.status(400).json({ message: "Can not get leaderboard!" });
+  }
+};
