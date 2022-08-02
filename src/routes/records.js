@@ -1,15 +1,22 @@
 import { Router } from "express";
+import {
+  addRecord,
+  deleteRecord,
+  getRecord,
+  getRecords,
+  updateRecord,
+} from "../controllers/records";
 
 const router = Router();
 
-router.get("/records", async (req, res) => {});
+router.get("/records", getRecords);
 
-router.post("/records", async (req, res) => {});
+router.post("/records", addRecord);
 
-router.get("/record/:id", async (req, res) => {});
+router.get("/record/:id", getRecord);
 
-router.put("/record/:id", async (req, res) => {});
+router.put("/record/:id", updateRecord);
 
-router.delete("/record/:id", async (req, res) => {});
+router.delete("/record/:id", deleteRecord);
 
 export default router;
