@@ -4,12 +4,14 @@ import {
   deleteRecord,
   getRecord,
   getRecords,
+  getRecordsByTypeWithSort,
   updateRecord,
 } from "../controllers/records";
 
 const router = Router();
 
 router.get("/records", getRecords);
+router.get("/records/withlimit", getRecordsByTypeWithSort);
 
 router.post("/records", addRecord);
 
