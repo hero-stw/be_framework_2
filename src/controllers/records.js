@@ -1,8 +1,11 @@
 import Record from "../models/records";
 
 export const getRecords = async (req, res) => {
+  const type = req.query.type ? parseInt(req.query.type) : 1;
   try {
-    const records = await Record.find().exec();
+    const records = await Record.find({
+      ...(type ? { questionType: type } : undefined),
+    }).exec();
     res.status(200).json(records);
   } catch (err) {
     res.status(400).json({ message: "Can not find any record" });
@@ -51,19 +54,5 @@ export const updateRecord = async (req, res) => {
     res.status(400).json({
       message: "Can not update record",
     });
-  }
-};
-
-export const getRecordsByTypeWithSort = async (req, res) => {
-  try {
-    const query = req.body.type;
-    const records = await Record.find({ questionType: query })
-      .sort({ error: -1, duration: -1 })
-      .limit(10)
-      .exec();
-
-    res.status(400).json(records);
-  } catch (error) {
-    res.status(400).json({ message: "Can not get leaderboard!" });
   }
 };
