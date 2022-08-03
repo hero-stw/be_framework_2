@@ -56,7 +56,7 @@ export const updateRecord = async (req, res) => {
 
 export const getRecordsByTypeWithSort = async (req, res) => {
   try {
-    const query = req.query.type;
+    const query = req.body.type;
     const records = await Record.find({ questionType: query })
       .sort({ error: -1, duration: -1 })
       .limit(10)
