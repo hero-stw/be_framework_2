@@ -30,7 +30,7 @@ const HistorySchema = new Schema(
                     require: true
                 },
                 inputValue: {
-                    type: Number,
+                    type: String,
                     require: true
                 },
                 correctResult: {
@@ -42,7 +42,7 @@ const HistorySchema = new Schema(
                     require: true
                 },
                 time: {
-                    type: Number,
+                    type: String,
                     require: true
                 }
             }

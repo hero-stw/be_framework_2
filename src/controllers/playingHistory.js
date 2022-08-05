@@ -21,7 +21,7 @@ export const getHistorys = async (req, res) => {
 export const getHistory = async (req, res) => {
     try {
       const history = await History.findOne({_id: req.params._id}).exec();
-      res.status(200).json(history);
+      res.status(200).json(history.total);
     } catch (err) {
       res.status(400).json({ message: "Can not find any record" });
     }
