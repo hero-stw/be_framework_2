@@ -10,6 +10,18 @@ const HistorySchema = new Schema(
       type: String,
       require: true
     },
+    duration: {
+      type: String,
+      required: true,
+    },
+    error: {
+      type: Number,
+      required: true,
+    },
+    questionType: {
+      type: Number,
+      required: true,
+    },
     total: {
         type: [
             {
