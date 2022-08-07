@@ -5,7 +5,9 @@ export const getRecords = async (req, res) => {
   try {
     const records = await Record.find({
       ...(type ? { questionType: type } : undefined),
-    }).exec();
+    })
+      .sort([{ error: "asc" }, { duration: "desc" }])
+      .exec();
     res.status(200).json(records);
   } catch (err) {
     res.status(400).json({ message: "Can not find any record" });
@@ -39,20 +41,20 @@ export const deleteRecord = async (req, res) => {
   }
 };
 
-export const updateRecord = async (req, res) => {
-  try {
-    const condition = { _id: req.params.id };
-    const update = { $set: req.body };
-    const option = { new: true };
-    const record = await Record.findOneAndUpdate(
-      condition,
-      update,
-      option
-    ).exec();
-    res.status(200).json(record);
-  } catch (error) {
-    res.status(400).json({
-      message: "Can not update record",
-    });
-  }
-};
+// export const updateRecord = async (req, res) => {
+//   try {
+//     const condition = { _id: req.params.id };
+//     const update = { $set: req.body };
+//     const option = { new: true };
+//     const record = await Record.findOneAndUpdate(
+//       condition,
+//       update,
+//       option
+//     ).exec();
+//     res.status(200).json(record);
+//   } catch (error) {
+//     res.status(400).json({
+//       message: "Can not update record",
+//     });
+//   }
+// };
