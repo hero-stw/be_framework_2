@@ -7,6 +7,6 @@ const SettingSchema = new Schema(
       required: true,
     },
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 export default mongoose.model("Settings", SettingSchema);

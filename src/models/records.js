@@ -22,7 +22,7 @@ const RecordSchema = new Schema(
       required: true,
     },
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
 export default mongoose.model("Record", RecordSchema);

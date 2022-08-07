@@ -18,7 +18,7 @@ const UserSchema = new Schema({
     type: String,
     default: 0,
   },
-});
+},{timestamps:true});
 
 UserSchema.pre("save", function (next) {
   this.salt = uuidv4();

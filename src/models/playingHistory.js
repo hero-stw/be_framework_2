@@ -49,7 +49,7 @@ const HistorySchema = new Schema(
         ]
     }
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
 export default mongoose.model("History", HistorySchema);
