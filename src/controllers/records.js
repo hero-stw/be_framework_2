@@ -3,10 +3,8 @@ import Record from "../models/records";
 export const getRecords = async (req, res) => {
   const type = req.query.type ? parseInt(req.query.type) : 1;
   try {
-    const records = await Record.find({
-      ...(type ? { questionType: type } : undefined),
-    })
-      .sort([{ error: "asc" }, { duration: "desc" }])
+    const records = await Record.find(type && { questionType: type })
+      .sort({ error: 1, duration: -1 })
       .exec();
     res.status(200).json(records);
   } catch (err) {
